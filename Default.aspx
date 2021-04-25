@@ -37,6 +37,10 @@
                         <asp:TextBox ID="txtBody" class="form-control" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
                     </div>
                     <div>
+                        <asp:Label ID="lblAttachment" class="form-label" runat="server" Text="Attachment:"></asp:Label>
+                        <asp:FileUpload ID="FileUpload1" class="form-control" runat="server" />
+                    </div>
+                    <div>
                         <asp:Button ID="btnSendEmail" class="btn btn-primary" runat="server" Text="Send Email" OnClick="btnSendEmail_Click" />
                     </div>
                 </div>

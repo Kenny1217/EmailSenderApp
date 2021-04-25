@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -46,6 +48,12 @@ namespace EmailSenderApp
             mail.Subject = subject; //Set mail subject
             mail.Body = body; //Set mail body
             mail.IsBodyHtml = true;
+            if (FileUpload1.HasFile)
+            {
+                string filename = Path.GetFileName(FileUpload1.FileName);
+                FileUpload1.SaveAs(Server.MapPath("Uploads/") + filename); //Save file to server
+                mail.Attachments.Add(new Attachment(Server.MapPath("Uploads/") + filename, MediaTypeNames.Application.Octet));// Send Attachments 
+            }
             SmtpClient smtp = new SmtpClient(smtpAddress, portNumber); //Create smtp client
 
             //Try to send email
