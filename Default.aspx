@@ -30,10 +30,14 @@
                     </div>
                     <div>
                         <asp:Label ID="lblSubject" class="form-label" runat="server" Text="Subject:"></asp:Label>
-                        <asp:TextBox ID="txtSubject" class="form-control" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
+                        <asp:TextBox ID="txtSubject" class="form-control" runat="server"></asp:TextBox>
                     </div>
                     <div>
-                        <asp:Button ID="btnSendEmail" class="btn btn-primary" runat="server" Text="Send Email" />
+                        <asp:Label ID="lblBody" class="form-label" runat="server" Text="Body:"></asp:Label>
+                        <asp:TextBox ID="txtBody" class="form-control" runat="server" TextMode="MultiLine" Rows="5"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:Button ID="btnSendEmail" class="btn btn-primary" runat="server" Text="Send Email" OnClick="btnSendEmail_Click" />
                     </div>
                 </div>
                 <!--Right Column-->
