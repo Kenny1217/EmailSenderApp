@@ -31,9 +31,18 @@ namespace EmailSenderApp
 
             MailMessage mail = new MailMessage(); //Create MailMessage 
             mail.From = new MailAddress(emailFromAddress);
-            mail.To.Add(EmailTo); //Add email to send to
-            //mail.CC.Add(CC); //Add cc email
-            //mail.Bcc.Add(BCC); //Add bbc email
+            if (EmailTo != "")
+            {
+                mail.To.Add(EmailTo); //Add email to send to
+            }
+            if (CC != "")
+            {
+                mail.CC.Add(CC); //Add cc email
+            }
+            if (BCC != "")
+            {
+                mail.Bcc.Add(BCC); //Add bbc email
+            }
             mail.Subject = subject; //Set mail subject
             mail.Body = body; //Set mail body
             mail.IsBodyHtml = true;
